@@ -42,14 +42,14 @@
 
     /* Profile Picture */
     .profile-img {
-      width: 250px;
-      height: 250px;
+      width: 300px; /* Made bigger */
+      height: 300px; /* Made bigger */
       border-radius: 50%;
       object-fit: cover;
       margin-top: 2rem;
-      border: 6px solid #8B5CF6; /* A more vibrant purple */
-      box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.3),
-                  0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 8px solid #8B5CF6; /* A more vibrant purple, border bigger */
+      box-shadow: 0 0 0 10px rgba(139, 92, 246, 0.3), /* Shadow bigger */
+                  0 12px 30px rgba(0, 0, 0, 0.25); /* Shadow bigger */
       transition: transform 0.3s ease-in-out;
     }
     .profile-img:hover {
@@ -343,6 +343,23 @@
         text-align: center;
     }
 
+    /* New Additional Picture Section Styling */
+    .additional-picture {
+        text-align: center;
+    }
+    .additional-picture img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 1.5rem;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .additional-picture img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
 
     footer {
       text-align: center;
@@ -524,6 +541,14 @@
         <a href="mailto:rosabethballa20@gmail.com"><i class="fas fa-envelope"></i> rosabethballa20@gmail.com</a><br>
         <a href="#"><i class="fas fa-brain"></i> Explore my open-source projects and collaborations.</a>
       </p>
+    </section>
+
+    <!-- NEW SECTION: Additional Picture under Contact Me -->
+    <section class="section additional-picture">
+        <h2><i class="fas fa-image"></i> My Creations in Action!</h2>
+        <p>A glimpse into my hands-on work and prototypes.</p>
+        <img src="https://via.placeholder.com/800x450/4CAF50/FFFFFF?text=Your+Amazing+Project+Photo+Here" alt="A photo of Rosabeth Balla's project or workbench">
+        <p style="margin-top: 1rem; color: #718096;">"Innovation is seeing what everybody has seen and thinking what nobody has thought."</p>
     </section>
 
   </div>
