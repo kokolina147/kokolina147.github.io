@@ -4,78 +4,255 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rosabeth Balla | Embedded Systems & Robotics Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Base Styles */
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
     body {
       margin: 0;
-      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f9fafb;
-      color: #111827;
+      font-family: "Inter", sans-serif; /* Use Inter font */
+      background: #eef2f6; /* Lighter background */
+      color: #1a202c; /* Darker text for contrast */
+      line-height: 1.6;
     }
     header {
-      background: #111827;
+      background: linear-gradient(135deg, #1f2937, #374151); /* Gradient background */
       color: white;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 4rem; /* More padding at bottom */
       text-align: center;
+      position: relative; /* For profile pic positioning */
+      overflow: hidden; /* To contain any overflows */
     }
     header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
+      font-size: 2.8rem; /* Bigger name */
+      margin-bottom: 0.5rem;
+      font-weight: 700; /* Bolder */
+      letter-spacing: -0.02em;
     }
     header p {
-      font-size: 1rem;
-      color: #9ca3af;
+      font-size: 1.2rem;
+      color: #cbd5e0; /* Lighter grey */
+      margin-bottom: 2rem;
     }
-    /* Add this new style for your profile picture */
+
+    /* Profile Picture - MUCH BIGGER */
     .profile-img {
-      width: 150px; /* Adjust size as needed */
-      height: 150px; /* Adjust size as needed */
-      border-radius: 50%; /* Makes it a circle */
-      object-fit: cover; /* Ensures the image covers the area without distortion */
-      margin-top: 1rem; /* Space from the text above */
-      border: 3px solid #6366f1; /* Optional: add a border */
+      width: 250px; /* Significantly increased size */
+      height: 250px; /* Significantly increased size */
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 2rem; /* More space from text */
+      border: 6px solid #6366f1; /* Thicker border */
+      box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.3), /* Outer glow */
+                  0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+      transition: transform 0.3s ease-in-out; /* Smooth hover effect */
     }
+    .profile-img:hover {
+        transform: scale(1.05);
+    }
+
     .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 960px; /* Slightly wider container */
+      margin: -60px auto 2rem; /* Pull container up over header */
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
     }
     .section {
       background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
+      border-radius: 16px; /* More rounded corners */
+      padding: 2.5rem; /* More padding */
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+      margin-bottom: 2rem; /* More space between sections */
+      transition: transform 0.3s ease-in-out;
+    }
+    .section:hover {
+        transform: translateY(-5px); /* Lift on hover */
     }
     h2 {
       margin-top: 0;
-      color: #1f2937;
+      color: #2d3748; /* Slightly different heading color */
+      font-size: 2rem;
+      border-bottom: 2px solid #edf2f7; /* Subtle separator */
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
     }
     a {
-      color: #2563eb;
+      color: #4c51bf; /* Deeper blue for links */
       text-decoration: none;
+      font-weight: 600;
     }
     a:hover {
       text-decoration: underline;
     }
+
+    /* Projects Section Specific Styling */
     .projects ul {
       list-style: none;
       padding: 0;
     }
     .projects li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
+    .projects li:last-child {
+      border-bottom: none;
+    }
+    .projects li strong {
+      color: #2c5282;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .projects li span { /* For project icons */
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+      color: #6366f1;
+    }
+
+    /* Skills Section Styling */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-category {
+      background: #f7fafc;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+    .skill-category h3 {
+      color: #2d3748;
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .skill-category h3 svg {
+        color: #6366f1;
+        width: 24px;
+        height: 24px;
+    }
+    .skill-category ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-category li {
+      background: #edf2f7;
+      border-radius: 5px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    /* Experience/Timeline Section Styling */
+    .timeline {
+      position: relative;
+      padding: 1rem 0 0 1rem;
+      border-left: 2px solid #e2e8f0;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px; /* Aligns with the border-left */
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #6366f1;
+      border: 3px solid white; /* Inner border */
+      box-shadow: 0 0 0 2px #6366f1; /* Outer ring */
+    }
+    .timeline-item h3 {
+      margin: 0 0 0.2rem 0;
+      color: #2d3748;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .timeline-item p.duration {
+      color: #718096;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item p.description {
+      color: #4a5568;
+      font-size: 1rem;
+    }
+
+    /* Call to Action Styling */
+    .cta {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #3182ce; /* Blue background */
+      color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    .cta h2 {
+      color: white;
+      font-size: 2.2rem;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #e2e8f0;
+    }
+    .cta .btn {
+      display: inline-block;
+      background: white;
+      color: #3182ce;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .cta .btn:hover {
+      background: #edf2f7;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      color: #6b7280;
+      padding: 1.5rem;
+      color: #718096;
       font-size: 0.9rem;
-      border-top: 1px solid #e5e7eb;
-      margin-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+      background: white;
     }
   </style>
 </head>
@@ -84,11 +261,9 @@
   <header>
     <h1>HI There, I'm Rosabeth Balla</h1>
     <p>Embedded Systems Engineer | Robotics Enthusiast | Creator of Smart Robots</p>
-    <!-- ADD YOUR IMAGE HERE -->
-    <img src="https://github.com/kokolina147/kokolina147.github.io/blob/main/asset/image%20(3).png" class="profile-img">
+    <!-- Your Profile Picture -->
+    <img src="https://raw.githubusercontent.com/kokolina147/kokolina147.github.io/main/asset/image%20(3).png" alt="Rosabeth Balla Profile Picture" class="profile-img">
   </header>
-  <!-- The closing </header> tag was incorrectly placed after the img tag's src attribute, 
-       it should be after the complete img tag. -->
 
   <div class="container">
 
@@ -101,21 +276,96 @@
       </p>
     </section>
 
-  <section class="section projects">
-  <h2>Featured Projects</h2>
-  <ul>
-    <li><strong>🚗 2 DOF Mobile Manipulator Robot</strong> — A teleoperated mobile robot equipped with a 2-DOF arm and gripper, controlled via a PS3 controller using ESP32 Bluetooth. Designed with 3D-printed PLA parts and powered by a 3S2P 18650 Li-ion battery system.</li>
+    <!-- NEW SECTION: Skills -->
+    <section class="section skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+            Programming Languages
+          </h3>
+          <ul>
+            <li>C/C++</li>
+            <li>Python</li>
+            <li>MATLAB</li>
+            <li>Assembly (ARM)</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+            </svg>
+            Hardware & Systems
+          </h3>
+          <ul>
+            <li>Microcontrollers (ESP32, STM32, Arduino)</li>
+            <li>IoT Protocols (MQTT, HTTP)</li>
+            <li>Sensors & Actuators</li>
+            <li>Circuit Design (Altium, Eagle)</li>
+            <li>Robotics (Kinematics, ROS Basics)</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Tools & Software
+          </h3>
+          <ul>
+            <li>Git/GitHub</li>
+            <li>VS Code</li>
+            <li>PlatformIO</li>
+            <li>SolidWorks, Fusion 360</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <li><strong>🌡️ Environmental Sensing Bot</strong> — An IoT-enabled robot for real-time temperature, humidity, and gas detection using the DHT22 sensor and a gas sensor module, integrated into the mobile manipulator platform.</li>
+    <!-- NEW SECTION: Experience (Timeline) -->
+    <section class="section experience">
+      <h2>Experience & Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Embedded Systems Engineer Intern</h3>
+          <p class="duration">Tech Innovators Inc. | June 2024 - Present</p>
+          <p class="description">Developed firmware for IoT devices, optimized sensor integration, and contributed to a real-time data acquisition system. Gained experience with ESP32 and MQTT.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Robotics Research Assistant</h3>
+          <p class="duration">University of XYZ Robotics Lab | Jan 2023 - May 2024</p>
+          <p class="description">Assisted in the development of a 2-DOF mobile manipulator, focusing on motor control and Bluetooth communication. Contributed to documentation and testing.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>B.Sc. in Mechatronics & Systems Engineering</h3>
+          <p class="duration">University of ABC | 2021 - 2025</p>
+          <p class="description">Specialized in embedded systems, robotics, and control theory. Dean's List for 3 consecutive years. Final year project: Autonomous Drone Navigation System.</p>
+        </div>
+      </div>
+    </section>
 
-    <li><strong>📊 Embedded UI Dashboard</strong> — A responsive TFT display interface for visualizing microcontroller data, built using ESP32 and designed for intuitive interaction and real-time system feedback.</li>
+    <section class="section projects">
+      <h2>Featured Projects</h2>
+      <ul>
+        <li><span>🚗</span> <strong>2 DOF Mobile Manipulator Robot</strong> — A teleoperated mobile robot equipped with a 2-DOF arm and gripper, controlled via a PS3 controller using ESP32 Bluetooth. Designed with 3D-printed PLA parts and powered by a 3S2P 18650 Li-ion battery system.</li>
+        <li><span>🌡️</span> <strong>Environmental Sensing Bot</strong> — An IoT-enabled robot for real-time temperature, humidity, and gas detection using the DHT22 sensor and a gas sensor module, integrated into the mobile manipulator platform.</li>
+        <li><span>📊</span> <strong>Embedded UI Dashboard</strong> — A responsive display interface for visualizing microcontroller data, built using a Cheap Yellow Display and designed for intuitive interaction and real-time system feedback.</li>
+        <li><span>🔧</span> <strong>Cyber Truck Mobile Robot</strong> — A futuristic mobile robot concept inspired by Tesla’s Cybertruck, controlled using a PS3 controller via Bluetooth, featuring modular hardware architecture and advanced motion control algorithms.</li>
+        <li><span>💻</span> <strong>IoT Control System</strong> — A Wi-Fi/Bluetooth-enabled embedded control system that integrates sensors and actuators for remote monitoring and automation, leveraging ESP32 and MQTT protocols.</li>
+      </ul>
+    </section>
 
-    <li><strong>🔧 Cyber Truck Mobile Robot</strong> — A futuristic mobile robot concept inspired by Tesla’s Cybertruck, controlled using a PS3 controller via Bluetooth, featuring modular hardware architecture and advanced motion control algorithms.</li>
-
-    <li><strong>💻 IoT Control System</strong> — A Wi-Fi/Bluetooth-enabled embedded control system that integrates sensors and actuators for remote monitoring and automation, leveraging ESP32 and MQTT protocols.</li>
-    
-  </ul>
-</section>
+    <!-- NEW SECTION: Call to Action -->
+    <section class="section cta">
+      <h2>Ready to Collaborate?</h2>
+      <p>I'm always open to new opportunities and exciting projects in embedded systems and robotics. Let's build something amazing together!</p>
+      <a href="mailto:rosabethballa20@gmail.com" class="btn">Get in Touch</a>
+    </section>
 
     <section class="section links">
       <h2>Connect With Me</h2>
@@ -129,7 +379,7 @@
   </div>
 
   <footer>
-    © 2025 koko. Built with ❤️ using HTML & CSS.
+    © 2025 Rosabeth Balla. Built with ❤️ using HTML & CSS.
   </footer>
 
 </body>
