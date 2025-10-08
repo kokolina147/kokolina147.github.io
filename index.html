@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rosabeth Balla | Embedded Systems & Robotics Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- For icons - using Font Awesome for a broader range -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Base Styles */
     * {
@@ -13,81 +15,91 @@
     }
     body {
       margin: 0;
-      font-family: "Inter", sans-serif; /* Use Inter font */
-      background: #eef2f6; /* Lighter background */
-      color: #1a202c; /* Darker text for contrast */
+      font-family: "Inter", sans-serif;
+      background: #eef2f6;
+      color: #1a202c;
       line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #1f2937, #374151); /* Gradient background */
+      background: linear-gradient(135deg, #1f2937, #374151);
       color: white;
-      padding: 3rem 1rem 4rem; /* More padding at bottom */
+      padding: 3rem 1rem 4rem;
       text-align: center;
-      position: relative; /* For profile pic positioning */
-      overflow: hidden; /* To contain any overflows */
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
-      font-size: 2.8rem; /* Bigger name */
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
-      font-weight: 700; /* Bolder */
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
     header p {
       font-size: 1.2rem;
-      color: #cbd5e0; /* Lighter grey */
+      color: #cbd5e0;
       margin-bottom: 2rem;
     }
 
-    /* Profile Picture - MUCH BIGGER */
+    /* Profile Picture */
     .profile-img {
-      width: 250px; /* Significantly increased size */
-      height: 250px; /* Significantly increased size */
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
       object-fit: cover;
-      margin-top: 2rem; /* More space from text */
-      border: 6px solid #6366f1; /* Thicker border */
-      box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.3), /* Outer glow */
-                  0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow */
-      transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+      margin-top: 2rem;
+      border: 6px solid #8B5CF6; /* A more vibrant purple */
+      box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.3),
+                  0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
     }
     .profile-img:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) rotate(2deg); /* Added a slight rotation */
     }
 
     .container {
-      max-width: 960px; /* Slightly wider container */
-      margin: -60px auto 2rem; /* Pull container up over header */
+      max-width: 960px;
+      margin: -60px auto 2rem;
       padding: 0 1.5rem;
       position: relative;
       z-index: 10;
     }
     .section {
       background: white;
-      border-radius: 16px; /* More rounded corners */
-      padding: 2.5rem; /* More padding */
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Stronger shadow */
-      margin-bottom: 2rem; /* More space between sections */
-      transition: transform 0.3s ease-in-out;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
     .section:hover {
-        transform: translateY(-5px); /* Lift on hover */
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); /* Deeper shadow on hover */
     }
     h2 {
       margin-top: 0;
-      color: #2d3748; /* Slightly different heading color */
+      color: #2d3748;
       font-size: 2rem;
-      border-bottom: 2px solid #edf2f7; /* Subtle separator */
+      border-bottom: 2px solid #edf2f7;
       padding-bottom: 0.8rem;
       margin-bottom: 1.5rem;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h2 i { /* For Font Awesome icons in headings */
+      color: #8B5CF6; /* Vibrant purple for icons */
+      font-size: 1.8rem;
     }
     a {
-      color: #4c51bf; /* Deeper blue for links */
+      color: #6366f1; /* Consistent link color */
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.2s ease;
     }
     a:hover {
       text-decoration: underline;
+      color: #4f46e5;
     }
 
     /* Projects Section Specific Styling */
@@ -115,7 +127,7 @@
       font-size: 1.5rem;
       line-height: 1;
       flex-shrink: 0;
-      color: #6366f1;
+      color: #8B5CF6; /* Vibrant purple for icons */
     }
 
     /* Skills Section Styling */
@@ -140,10 +152,9 @@
       align-items: center;
       gap: 0.75rem;
     }
-    .skill-category h3 svg {
-        color: #6366f1;
-        width: 24px;
-        height: 24px;
+    .skill-category h3 i { /* Font Awesome icons for skill categories */
+        color: #8B5CF6;
+        font-size: 1.5rem;
     }
     .skill-category ul {
       list-style: none;
@@ -178,14 +189,14 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -10px; /* Aligns with the border-left */
+      left: -10px;
       top: 0;
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: #6366f1;
-      border: 3px solid white; /* Inner border */
-      box-shadow: 0 0 0 2px #6366f1; /* Outer ring */
+      background: #8B5CF6; /* Vibrant purple */
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #8B5CF6;
     }
     .timeline-item h3 {
       margin: 0 0 0.2rem 0;
@@ -203,11 +214,83 @@
       font-size: 1rem;
     }
 
+    /* Project Gallery Section Styling */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    .gallery-item img, .gallery-item iframe {
+      width: 100%;
+      height: 200px; /* Consistent height for media */
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(139, 92, 246, 0.85); /* Vibrant purple overlay */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      text-align: center;
+      padding: 1rem;
+    }
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    .gallery-item .overlay h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .gallery-item .overlay p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #e2e8f0;
+    }
+    .gallery-item .overlay .view-btn {
+      display: inline-block;
+      background: white;
+      color: #8B5CF6;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .gallery-item .overlay .view-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
     /* Call to Action Styling */
     .cta {
       text-align: center;
       padding: 3rem 2rem;
-      background: #3182ce; /* Blue background */
+      background: linear-gradient(45deg, #8B5CF6, #EC4899); /* Dynamic gradient */
       color: white;
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -230,7 +313,7 @@
     .cta .btn {
       display: inline-block;
       background: white;
-      color: #3182ce;
+      color: #8B5CF6; /* Purple button text */
       padding: 0.9rem 2rem;
       border-radius: 8px;
       text-decoration: none;
@@ -244,6 +327,22 @@
       transform: translateY(-3px);
       text-decoration: none;
     }
+
+    /* Connect With Me Styling */
+    .links p a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+    }
+    .links p a i {
+        font-size: 1.3rem;
+        color: #8B5CF6; /* Vibrant icon color */
+        width: 24px; /* Fixed width for alignment */
+        text-align: center;
+    }
+
 
     footer {
       text-align: center;
@@ -259,8 +358,8 @@
 <body>
 
   <header>
-    <h1>HI There, I'm Rosabeth Balla</h1>
-    <p>Embedded Systems Engineer | Robotics Enthusiast | Creator of Smart Robots</p>
+    <h1>👋 Hi There, I'm Rosabeth Balla</h1>
+    <p>🚀 Embedded Systems Engineer | Robotics Enthusiast | Creator of Smart Robots</p>
     <!-- Your Profile Picture -->
     <img src="https://raw.githubusercontent.com/kokolina147/kokolina147.github.io/main/asset/image%20(3).png" alt="Rosabeth Balla Profile Picture" class="profile-img">
   </header>
@@ -268,7 +367,7 @@
   <div class="container">
 
     <section class="section about">
-      <h2>About Me</h2>
+      <h2><i class="fas fa-user-circle"></i> About Me</h2>
       <p>
         I’m an Embedded Systems Engineer with a strong passion for building smart, connected robots and control systems. My work combines creativity and engineering to design innovative solutions that bridge hardware, software, and user experience.
         I explore the full spectrum of embedded development—from microcontrollers and IoT integration to UI-driven embedded interfaces that make technology more intuitive and interactive. My projects often involve robotics, automation, and intelligent sensing systems, where I enjoy turning complex ideas into elegant, functional prototypes.
@@ -278,13 +377,11 @@
 
     <!-- NEW SECTION: Skills -->
     <section class="section skills">
-      <h2>Technical Skills</h2>
+      <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
       <div class="skills-grid">
         <div class="skill-category">
           <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-            </svg>
+            <i class="fas fa-code"></i>
             Programming Languages
           </h3>
           <ul>
@@ -296,9 +393,7 @@
         </div>
         <div class="skill-category">
           <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-            </svg>
+            <i class="fas fa-microchip"></i>
             Hardware & Systems
           </h3>
           <ul>
@@ -311,9 +406,7 @@
         </div>
         <div class="skill-category">
           <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
+            <i class="fas fa-tools"></i>
             Tools & Software
           </h3>
           <ul>
@@ -329,7 +422,7 @@
 
     <!-- NEW SECTION: Experience (Timeline) -->
     <section class="section experience">
-      <h2>Experience & Education</h2>
+      <h2><i class="fas fa-briefcase"></i> Experience & Education</h2>
       <div class="timeline">
         <div class="timeline-item">
           <h3>Embedded Systems Engineer Intern</h3>
@@ -349,8 +442,64 @@
       </div>
     </section>
 
+    <!-- Project Gallery Section -->
+    <section class="section project-gallery">
+      <h2><i class="fas fa-camera-retro"></i> Project Showcase & Gallery</h2>
+      <p style="margin-bottom: 2rem; text-align: center; color: #4a5568;">
+        Explore my favorite projects in action! Hover over an image to see details, or click to view.
+      </p>
+      <div class="gallery-grid">
+        <!-- Gallery Item 1: Image -->
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x200/8B5CF6/FFFFFF?text=Mobile+Manipulator" alt="2 DOF Mobile Manipulator Robot">
+          <div class="overlay">
+            <h3>Mobile Manipulator 🚗</h3>
+            <p>Teleoperated robot arm via ESP32 Bluetooth.</p>
+            <a href="https://github.com/kokolina147/YOUR-MOBILE-MANIPULATOR-REPO" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+        <!-- Gallery Item 2: Image -->
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x200/EC4899/FFFFFF?text=Environmental+Sensing" alt="Environmental Sensing Bot">
+          <div class="overlay">
+            <h3>Sensing Bot 🌡️</h3>
+            <p>Real-time environmental monitoring with DHT22.</p>
+            <a href="https://github.com/kokolina147/YOUR-SENSING-BOT-REPO" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+        <!-- Gallery Item 3: Embedded Video (YouTube Example) -->
+        <div class="gallery-item">
+          <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_HERE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="overlay">
+            <h3>UI Dashboard Demo 📊</h3>
+            <p>See the interactive TFT display in action!</p>
+            <a href="https://www.youtube.com/watch?v=YOUR_YOUTUBE_VIDEO_ID_HERE" target="_blank" class="view-btn">Watch Video</a>
+          </div>
+        </div>
+        <!-- Gallery Item 4: Image -->
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x200/10B981/FFFFFF?text=Cyber+Truck+Robot" alt="Cyber Truck Mobile Robot">
+          <div class="overlay">
+            <h3>Cyber Truck Robot 🔧</h3>
+            <p>Futuristic design with PS3 controller input.</p>
+            <a href="https://github.com/kokolina147/YOUR-CYBERTRUCK-REPO" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+         <!-- Gallery Item 5: Image -->
+         <div class="gallery-item">
+          <img src="https://via.placeholder.com/400x200/3B82F6/FFFFFF?text=IoT+Control+System" alt="IoT Control System">
+          <div class="overlay">
+            <h3>IoT Control System 💻</h3>
+            <p>Remote monitoring & automation via ESP32.</p>
+            <a href="https://github.com/kokolina147/YOUR-IOT-CONTROL-REPO" target="_blank" class="view-btn">View Project</a>
+          </div>
+        </div>
+        <!-- Add more gallery items as needed -->
+      </div>
+    </section>
+
     <section class="section projects">
-      <h2>Featured Projects</h2>
+      <h2><i class="fas fa-flask"></i> Detailed Project List</h2>
       <ul>
         <li><span>🚗</span> <strong>2 DOF Mobile Manipulator Robot</strong> — A teleoperated mobile robot equipped with a 2-DOF arm and gripper, controlled via a PS3 controller using ESP32 Bluetooth. Designed with 3D-printed PLA parts and powered by a 3S2P 18650 Li-ion battery system.</li>
         <li><span>🌡️</span> <strong>Environmental Sensing Bot</strong> — An IoT-enabled robot for real-time temperature, humidity, and gas detection using the DHT22 sensor and a gas sensor module, integrated into the mobile manipulator platform.</li>
@@ -362,17 +511,18 @@
 
     <!-- NEW SECTION: Call to Action -->
     <section class="section cta">
-      <h2>Ready to Collaborate?</h2>
-      <p>I'm always open to new opportunities and exciting projects in embedded systems and robotics. Let's build something amazing together!</p>
-      <a href="mailto:rosabethballa20@gmail.com" class="btn">Get in Touch</a>
+      <h2>Ready to Collaborate? Let's Build Something Awesome! ✨</h2>
+      <p>I'm always open to new opportunities and exciting projects in embedded systems and robotics. Don't hesitate to reach out!</p>
+      <a href="mailto:rosabethballa20@gmail.com" class="btn"><i class="fas fa-envelope"></i> Get in Touch</a>
     </section>
 
     <section class="section links">
-      <h2>Connect With Me</h2>
+      <h2><i class="fas fa-share-alt"></i> Connect With Me</h2>
       <p>
-        🔗 <a href="https://github.com/kokolina147" target="_blank">GitHub Profile</a><br>
-        💼 <a href="mailto:rosabethballa20@gmail.com">rosabethballa20@gmail.com</a><br>
-        🧠 Explore my open-source projects and collaborations.
+        <a href="https://github.com/kokolina147" target="_blank"><i class="fab fa-github"></i> GitHub Profile</a><br>
+        <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE_URL" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a><br> <!-- Added LinkedIn -->
+        <a href="mailto:rosabethballa20@gmail.com"><i class="fas fa-envelope"></i> rosabethballa20@gmail.com</a><br>
+        <a href="#"><i class="fas fa-brain"></i> Explore my open-source projects and collaborations.</a>
       </p>
     </section>
 
